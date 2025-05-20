@@ -1,0 +1,80 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+*.pyd
+*.dll
+
+# Virtual environment folders
+.venv/
+venv/
+ENV/
+env/
+.uv/
+
+# Pipenv, Poetry, Hatch, PDM files
+Pipfile.lock
+poetry.lock
+*.hatch
+*.pdm.toml
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# MyPy / type checker artifacts
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# pyenv
+.python-version
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.log
+*.tmp
+*.swp
+*.bak
+*.orig
+
+# Optional: ignore data/output folders
+# /data/
+# /output/
