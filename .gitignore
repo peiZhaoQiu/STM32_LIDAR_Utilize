@@ -75,6 +75,8 @@ desktop.ini
 *.bak
 *.orig
 
+
 # Optional: ignore data/output folders
 # /data/
 # /output/
+oldCode/
