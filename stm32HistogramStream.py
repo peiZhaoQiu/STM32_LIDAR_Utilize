@@ -5,7 +5,7 @@ import cv2
 import matplotlib
 from stm32HistogramViewer import *
 from stm32DepthViewer import *
-from utility import save_income_histogram
+from utility import save_income_histogram, read_serial_histogram
 
 
 H = 8
@@ -27,24 +27,10 @@ recordFilenamePrefix = 'record'
 iterationCount = 0
 
 while True:
-   
-    try:
-        for i in range(H):
-            for j in range(W):
-                # Replace with actual data source for (i, j)
-                # Example bad data (only 16 bins instead of 18)
-
-                hist = serial_port.readline().decode('utf-8').strip()
-                hist_values = [int(value) for value in hist.split()]
-                if len(hist_values) != NUM_BIN:
-                    raise ValueError(f"Invalid histogram at ({i}, {j}): Expected {NUM_BIN} values, got {len(hist_values)}")
-
-                income_matrix[i, j, :] = hist_values
-
-    except ValueError as e:
-        print(f"[ERROR] {e}")
-        print("Aborting: Incomplete or invalid histogram data detected.")
-        continue 
+    
+    serialResult = read_serial_histogram(serial_port, income_matrix, NUM_BIN=18)
+    if serialResult is None:
+        continue
 
     distance_array_input = np.argmax(income_matrix, axis=2)
 
@@ -70,6 +56,7 @@ while True:
             recordMode = False
         
     iterationCount = iterationCount + 1
+
 depthImageViewer.close()    
 histogramViewer.close()
 serial_port.close()
