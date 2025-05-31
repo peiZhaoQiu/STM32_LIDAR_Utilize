@@ -21,14 +21,14 @@ H, W, NUM_BIN = 8, 8, 18
 histogramViewer = HistogramGridViewer(H, W, NUM_BIN)
 depthImageViewer = DepthImageViewer(H,W,NUM_BIN) 
 recordMode = False
-recordLimit = 100
+recordLimit = 1000
 recordNum = 0
 recordFilenamePrefix = 'record'
 iterationCount = 0
 
 while True:
     
-    serialResult = read_serial_histogram(serial_port, income_matrix, NUM_BIN=18)
+    serialResult = read_serial_histogram(serial_port, income_matrix)
     if serialResult is None:
         continue
 
